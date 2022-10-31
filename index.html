@@ -8,7 +8,49 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <button id="play-btn"></button>
+    <header>
+        <h1>ROCK PAPER SCISSORS</h1>
+        <div class="PVC">
+            <p>Player</p>
+            <p>VS</p>
+            <p>Computer</p>
+        </div>
+    </header>
+
+    <main>
+        <div class="log-round">
+            <div class="each-round">
+                <p>You Won! 1</p>
+                <p>Computer Lost! 0</p>
+            </div>
+            <div class="each-round">
+                <p>You Lost! 1</p>
+                <p>Computer Won! 1</p>
+            </div>
+            <div class="each-round">
+                <p>You Won! 2</p>
+                <p>Computer Lost! 1</p>
+            </div>
+            <div class="each-round">
+                <p>You Lost! 2</p>
+                <p>Computer Won! 2</p>
+            </div>
+            <div class="each-round">
+                <p>You Lost! 2</p>
+                <p>Computer Won! 3</p>
+            </div>
+            <div class="game-winner">
+                WINNER: COMPUTER!!
+            </div>
+        </div>
+        <div class="button-container">
+            <button>Paper</button>
+            <button>Rock</button>
+            <button>Scissors</button>
+        </div>
+    </main>
+
+    <button id="play-btn">Start Game</button>
     <script src="script.js"></script>
 </body>
 </html>
