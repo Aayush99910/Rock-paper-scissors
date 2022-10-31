@@ -11,30 +11,27 @@ const rock = document.querySelector("#rock");
 const scissors = document.querySelector("#scissors");
 
 // listening for a event
-paper.addEventListener('click', function (e) {
-    const selectedOption = e.target.innerText;
+paper.addEventListener('click', () => {
     if (round <= 5) {
-        game(selectedOption);
+        game("paper");
         round++;
     } else {
         return;
     }
 });
     
-rock.addEventListener('click', function (e) {
-    const selectedOption = e.target.innerText;
+rock.addEventListener('click', () => {
     if (round <= 5) {
-        game(selectedOption);
+        game("rock");
         round++;
     } else {
         return;
     }
 });
     
-scissors.addEventListener('click', function (e) {
-    const selectedOption = e.target.innerText;
+scissors.addEventListener('click', () => {
     if (round <= 5) {
-        game(selectedOption);
+        game("scissors");
         round++;
     } else {
         return;
@@ -50,20 +47,14 @@ function playRound(playerSelection, computerSelection) {
 }
 
 function game(playerSelection) {
-    totalComputerPoints = 0;
-    totalPlayerPoints = 0;
-
-    // <div class="each-round">
-    //             <p>You Won! 1</p>
-    //             <p>Computer Lost! 0</p>
-    // </div>
-
     const computerSelection = getComputerChoice();
     const roundWinner = playRound(playerSelection, computerSelection);
     showWinner(roundWinner);
 
-    const winner = checkWinner();
-    console.log(winner);
+    if (round === 5){
+        const winner= checkWinner();
+        showGameWinner(winner);
+    }
 }
 
 
@@ -119,20 +110,34 @@ function checkEachRoundWinner(player, computer) {
 
 function checkWinner() {
     if (totalComputerPoints > totalPlayerPoints){
-        return `YOU LOST THE GAME.`
+        return `WINNER COMPUTER!`
     } else if (totalPlayerPoints > totalComputerPoints){
-        return `YOU HAVE WON IT ALL!`
+        return `WINNER PLAYER!!`
     } else {
         return `IT WAS A TIE BETWEEN YOU AND COMPUTER!`
     }
 }
 
 function showWinner(roundWinner) {
+    // creating the necessary elements to be shown in the log-round div
     const logRound = document.querySelector(".log-round");
     const div = document.createElement("div");
     const p = document.createElement("p");
     p.textContent = roundWinner;
+    p.classList.add("outcome");
     div.appendChild(p);
     div.classList.add("each-round");
+    logRound.appendChild(div);
+}
+
+function showGameWinner(winner) {
+    // creating the necessary elements to be shown in the log-round div
+    const logRound = document.querySelector(".log-round");
+    const div = document.createElement("div");
+    const p = document.createElement("p");
+    p.textContent = winner;
+    p.classList.add("outcome");
+    div.appendChild(p);
+    div.classList.add("game-winner");
     logRound.appendChild(div);
 }
