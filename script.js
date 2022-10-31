@@ -49,7 +49,7 @@ function playRound(playerSelection, computerSelection) {
 function game(playerSelection) {
     const computerSelection = getComputerChoice();
     const roundWinner = playRound(playerSelection, computerSelection);
-    showWinner(roundWinner);
+    showWinner(roundWinner, playerSelection, computerSelection);
 
     if (round === 5){
         const winner= checkWinner();
@@ -118,14 +118,22 @@ function checkWinner() {
     }
 }
 
-function showWinner(roundWinner) {
+function showWinner(roundWinner, playerSelection, computerSelection) {
     // creating the necessary elements to be shown in the log-round div
     const logRound = document.querySelector(".log-round");
     const div = document.createElement("div");
     const p = document.createElement("p");
+    const p1 = document.createElement("p");
+    const p2 = document.createElement("p");
+
+    p1.textContent = playerSelection;
     p.textContent = roundWinner;
-    p.classList.add("outcome");
-    div.appendChild(p);
+    p2.textContent = computerSelection;
+
+    p1.classList.add("outcome");
+    p.classList.add("result");
+    p2.classList.add("outcome");
+    div.append(p1, p, p2);
     div.classList.add("each-round");
     logRound.appendChild(div);
 }
