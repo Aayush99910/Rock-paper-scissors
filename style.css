@@ -34,7 +34,7 @@ main .log-round {
 }
 main .log-round .each-round {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   padding: 0.5rem;
 }
 main .log-round .game-winner {
