@@ -15,7 +15,6 @@ function game() {
     totalComputerPoints = 0;
     totalPlayerPoints = 0;
     for(let i = 0; i < 5; i++) {
-        const playerSelection = prompt("What is your choice?");
         const computerSelection = getComputerChoice();
         console.log(playRound(playerSelection, computerSelection));
     }
