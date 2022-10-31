@@ -10,7 +10,6 @@ const paper = document.querySelector("#paper");
 const rock = document.querySelector("#rock");
 const scissors = document.querySelector("#scissors");
 
-
 // listening for a event
 paper.addEventListener('click', function (e) {
     const selectedOption = e.target.innerText;
@@ -54,8 +53,14 @@ function game(playerSelection) {
     totalComputerPoints = 0;
     totalPlayerPoints = 0;
 
+    // <div class="each-round">
+    //             <p>You Won! 1</p>
+    //             <p>Computer Lost! 0</p>
+    // </div>
+
     const computerSelection = getComputerChoice();
-    console.log(playRound(playerSelection, computerSelection));
+    const roundWinner = playRound(playerSelection, computerSelection);
+    showWinner(roundWinner);
 
     const winner = checkWinner();
     console.log(winner);
@@ -120,4 +125,14 @@ function checkWinner() {
     } else {
         return `IT WAS A TIE BETWEEN YOU AND COMPUTER!`
     }
+}
+
+function showWinner(roundWinner) {
+    const logRound = document.querySelector(".log-round");
+    const div = document.createElement("div");
+    const p = document.createElement("p");
+    p.textContent = roundWinner;
+    div.appendChild(p);
+    div.classList.add("each-round");
+    logRound.appendChild(div);
 }
