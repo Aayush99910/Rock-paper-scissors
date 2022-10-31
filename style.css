@@ -1,0 +1,60 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  height: 100vh;
+}
+
+header h1 {
+  text-align: center;
+  font-size: 40px;
+  margin: 1rem 0px;
+}
+header .PVC {
+  display: flex;
+  justify-content: space-between;
+  font-size: 30px;
+  margin-top: 60px;
+  margin-bottom: 1rem;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}
+
+main .log-round {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+  height: 200px;
+  width: 98.5%;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}
+main .log-round .each-round {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem;
+}
+main .log-round .game-winner {
+  text-align: center;
+}
+main .button-container {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin: 1rem;
+}
+main .button-container button {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+}
+main .button-container button:hover {
+  cursor: pointer;
+  background-color: gray;
+}
+main .button-container button:active {
+  background-color: rgb(157, 148, 148);
+}/*# sourceMappingURL=style.css.map */
