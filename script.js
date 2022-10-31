@@ -1,9 +1,48 @@
 const option = ["rock", "paper", "scissors"];
 let allWinner;
+let round = 1;
 let totalPlayerPoints = 0;
 let totalComputerPoints = 0;
 
-// main function
+
+// getting all the buttons
+const paper = document.querySelector("#paper");
+const rock = document.querySelector("#rock");
+const scissors = document.querySelector("#scissors");
+
+
+// listening for a event
+paper.addEventListener('click', function (e) {
+    const selectedOption = e.target.innerText;
+    if (round <= 5) {
+        game(selectedOption);
+        round++;
+    } else {
+        return;
+    }
+});
+    
+rock.addEventListener('click', function (e) {
+    const selectedOption = e.target.innerText;
+    if (round <= 5) {
+        game(selectedOption);
+        round++;
+    } else {
+        return;
+    }
+});
+    
+scissors.addEventListener('click', function (e) {
+    const selectedOption = e.target.innerText;
+    if (round <= 5) {
+        game(selectedOption);
+        round++;
+    } else {
+        return;
+    }
+});
+
+
 function playRound(playerSelection, computerSelection) {
     let player = playerSelection.toLowerCase();
     let computer = computerSelection.toLowerCase();
@@ -11,18 +50,18 @@ function playRound(playerSelection, computerSelection) {
     return eachRoundWinner;
 }
 
-function game() {
+function game(playerSelection) {
     totalComputerPoints = 0;
     totalPlayerPoints = 0;
-    for(let i = 0; i < 5; i++) {
-        const computerSelection = getComputerChoice();
-        console.log(playRound(playerSelection, computerSelection));
-    }
+
+    const computerSelection = getComputerChoice();
+    console.log(playRound(playerSelection, computerSelection));
+
     const winner = checkWinner();
     console.log(winner);
 }
 
-game();
+
 
 
 
