@@ -11,9 +11,11 @@ const rock = document.querySelector("#rock");
 const scissors = document.querySelector("#scissors");
 
 // listening for a event
+// here in the event listener it skips the
+// funtionc if the round is more than 5
 paper.addEventListener('click', () => {
     if (round <= 5) {
-        game("paper");
+        game("paper"); // passes paper to the game function 
         round++;
     } else {
         return;
@@ -22,7 +24,7 @@ paper.addEventListener('click', () => {
     
 rock.addEventListener('click', () => {
     if (round <= 5) {
-        game("rock");
+        game("rock"); // passes rock
         round++;
     } else {
         return;
@@ -31,28 +33,29 @@ rock.addEventListener('click', () => {
     
 scissors.addEventListener('click', () => {
     if (round <= 5) {
-        game("scissors");
+        game("scissors"); // passes scissors
         round++;
     } else {
         return;
     }
 });
 
-
+// plays a round between player and computer
 function playRound(playerSelection, computerSelection) {
-    let player = playerSelection.toLowerCase();
-    let computer = computerSelection.toLowerCase();
-    const eachRoundWinner = checkEachRoundWinner(player, computer);
-    return eachRoundWinner;
+    let player = playerSelection.toLowerCase(); //converting the player choice to lowerCase
+    let computer = computerSelection.toLowerCase(); // converting the computer choice to lowerCase
+    const eachRoundWinner = checkEachRoundWinner(player, computer); // checks who won
+    return eachRoundWinner; // returning the winner of that round
 }
 
+// the main game function
 function game(playerSelection) {
     const computerSelection = getComputerChoice();
     const roundWinner = playRound(playerSelection, computerSelection);
     showWinner(roundWinner, playerSelection, computerSelection);
 
     if (round === 5){
-        const winner= checkWinner();
+        const winner= checkWinner(); // after five rounds winner is checked
         showGameWinner(winner);
     }
 }
@@ -126,10 +129,14 @@ function showWinner(roundWinner, playerSelection, computerSelection) {
     const p1 = document.createElement("p");
     const p2 = document.createElement("p");
 
+
+    // adding the text in the paragraph to show who won each round
     p1.textContent = playerSelection;
     p.textContent = roundWinner;
     p2.textContent = computerSelection;
 
+
+    // adding classes and appending the elements
     p1.classList.add("outcome");
     p.classList.add("result");
     p2.classList.add("outcome");
@@ -143,7 +150,9 @@ function showGameWinner(winner) {
     const logRound = document.querySelector(".log-round");
     const div = document.createElement("div");
     const p = document.createElement("p");
+
     p.textContent = winner;
+
     p.classList.add("outcome");
     div.appendChild(p);
     div.classList.add("game-winner");
