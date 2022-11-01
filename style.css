@@ -79,28 +79,55 @@ main .log-round .game-winner {
   text-align: center;
   padding-top: 10px;
 }
-main .button-container {
+main .button-link-container {
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   gap: 30px;
   margin-top: 2rem;
+  padding: 1rem;
 }
-main .button-container button {
+main .button-link-container .restart-btn-container {
+  display: flex;
+  flex: 1;
+}
+main .button-link-container .play-btns-container {
+  flex: 2;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+main .button-link-container button {
   padding: 1rem;
   height: 100px;
   width: 100px;
   border-radius: 50%;
 }
-main .button-container button:hover {
+main .button-link-container button p {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+main .button-link-container button:hover {
   cursor: pointer;
   background-color: gray;
 }
-main .button-container button:active {
+main .button-link-container button:active {
   background-color: rgb(157, 148, 148);
 }
-main .button-container #paper img,
-main .button-container #rock img,
-main .button-container #scissors img {
+main .button-link-container #paper img,
+main .button-link-container #rock img,
+main .button-link-container #scissors img,
+main .button-link-container #restart img,
+main .button-link-container #github {
   height: 50px;
   width: auto;
+}
+main .button-link-container .link-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+main .button-link-container .link-container p, main .button-link-container .link-container a {
+  font-family: "Comic Nue", sans-serif;
+  font-size: 18px;
 }/*# sourceMappingURL=style.css.map */
