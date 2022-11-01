@@ -9,6 +9,7 @@ let totalComputerPoints = 0;
 const paper = document.querySelector("#paper");
 const rock = document.querySelector("#rock");
 const scissors = document.querySelector("#scissors");
+const restartBtn = document.querySelector("#restart");
 
 // listening for a event
 // here in the event listener it skips the
@@ -38,6 +39,14 @@ scissors.addEventListener('click', () => {
     } else {
         return;
     }
+});
+
+restartBtn.addEventListener("click", function () {
+    const logRound = document.querySelector(".log-round");
+    round = 1;
+    totalComputerPoints = 0;
+    totalPlayerPoints = 0;
+    logRound.innerHTML = " "; 
 });
 
 // plays a round between player and computer
